@@ -8,18 +8,25 @@ import {
   Container,
   TextField,
 } from "@material-ui/core";
+import { AUTH, LOGOUT } from '../../constants/actionTypes';
 import { GoogleLogin } from "react-google-login";
 import useStyles from "./styles";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Input from "./input";
 import Icon from "./icon";
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 export const Auth = () => {
   const classes = useStyles();
   const [showPassword, setShowPassword] = useState(false);
   const [isSignup, setIsSignup] = useState(true);
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
 
-  const handleSubmit = () => {};
+  const handleSubmit = () => {
+    
+  };
 
   const handleChange = () => {};
 
@@ -33,7 +40,17 @@ export const Auth = () => {
   };
 
   const googleSuccess = async (res) => {
-    console.log(res);
+    const result = res?.profileObj
+    const token = res?.tokenId
+
+    try{
+
+        dispatch({type : AUTH, data: { result, token }})
+        navigate("/")
+    } catch(error){
+
+    }
+
   };
 
   const googleFailure = () => {
