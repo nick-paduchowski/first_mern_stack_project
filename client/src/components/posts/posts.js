@@ -10,16 +10,6 @@ const Posts = ({ setCurrentId }) => {
   const classes = useStyles();
   const user = JSON.parse(localStorage.getItem("profile"));
 
-  if (!user?.result?.name) {
-    return (
-      <Paper className={classes.paper}>
-        <Typography variant="hr" align="center">
-          Sign in
-        </Typography>
-      </Paper>
-    );
-  }
-
   return (
     !posts.length ? <CircularProgress /> : (
       <Grid className={classes.container} container alignItems="stretch" spacing={3}>

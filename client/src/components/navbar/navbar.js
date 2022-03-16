@@ -5,6 +5,7 @@ import memories from '../../images/memories.png';
 import useStyles from './styles'
 import { useDispatch } from 'react-redux'
 import decode from 'jwt-decode';
+import { LocalTaxiOutlined } from "@material-ui/icons";
 
 
 const Navbar = () => {
@@ -28,17 +29,14 @@ const Navbar = () => {
     const logout = () => {
         dispatch({type: 'LOGOUT'})
         setUser(null)
+        window.location.reload();
         navigate("/")
     }
-
-    console.log(user)
 
     return(
         <AppBar className={classes.appBar} position="static" color="inherit">
             <div className={classes.brandContainer}>
-                <Typography component={Link} to='/' className={classes.heading} variant="h2" align="center">
-                Memories
-                </Typography>
+                {window.innerWidth < window.innerHeight ? null : <Typography component={Link} to='/' className={classes.heading} variant="h2" align="center">Memories</Typography> }
                 <img className={classes.image} src={memories} alt="icon" height="60" />
             </div>
             <Toolbar className={classes.toolbar}>

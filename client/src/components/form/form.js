@@ -45,7 +45,7 @@ const Form = ({ currentId, setCurrentId }) => {
     return (
       <Paper className={classes.paper}>
         <Typography variant="hr" align="center">
-          Please sign in to create posts and view posts.
+          Please sign in to create posts and interact with posts.
         </Typography>
       </Paper>
     );
