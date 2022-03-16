@@ -6,9 +6,8 @@ import {
   Grid,
   Typography,
   Container,
-  TextField,
 } from "@material-ui/core";
-import { AUTH, LOGOUT } from '../../constants/actionTypes';
+import { AUTH } from '../../constants/actionTypes';
 import { GoogleLogin } from "react-google-login";
 import useStyles from "./styles";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
@@ -47,7 +46,7 @@ export const Auth = () => {
 
   const switchMode = () => {
     setIsSignup((prevIsSignup) => !prevIsSignup);
-    handleShowPassword(false);
+    setShowPassword(false);
   };
 
   const googleSuccess = async (res) => {
